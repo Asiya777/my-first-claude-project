@@ -1,46 +1,37 @@
-const navToggle = document.getElementById('navToggle');
-const mainNav = document.getElementById('mainNav');
-
-if (navToggle && mainNav) {
-  navToggle.addEventListener('click', () => {
-    mainNav.classList.toggle('open');
-  });
-
-  mainNav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => mainNav.classList.remove('open'));
-  });
-}
-
-const contactForm = document.getElementById('contactForm');
-const formNote = document.getElementById('formNote');
-
-if (contactForm && formNote) {
-  contactForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    formNote.textContent = 'Спасибо! Заявка отправлена, мы свяжемся с вами в ближайшее время.';
-    contactForm.reset();
-  });
-}
-
-const revealItems = document.querySelectorAll('.reveal');
-
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        observer.unobserve(entry.target);
-      }
+document.addEventListener('DOMContentLoaded', () => {
+  const navToggle = document.getElementById('navToggle');
+  const mainNav = document.getElementById('mainNav');
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', () => {
+      mainNav.classList.toggle('is-open');
     });
-  }, { threshold: 0.15 });
+    mainNav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => mainNav.classList.remove('is-open'));
+    });
+  }
 
-  revealItems.forEach((item) => observer.observe(item));
-} else {
-  revealItems.forEach((item) => item.classList.add('in-view'));
-}
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach((el) => observer.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add('is-visible'));
+  }
 
-// Safety net: if something kept an item from revealing (observer never fired,
-// element off-screen in a print/export view, etc.), don't leave it invisible.
-window.setTimeout(() => {
-  revealItems.forEach((item) => item.classList.add('in-view'));
-}, 3000);
+  const form = document.getElementById('contactForm');
+  const note = document.getElementById('formNote');
+  if (form && note) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      note.textContent = 'Заявка отправлена. Мы свяжемся с вами в течение рабочего дня.';
+      form.reset();
+    });
+  }
+});
