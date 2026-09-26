@@ -8,7 +8,8 @@
 <link rel="stylesheet" href="assets/styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
 <body>
 
@@ -21,8 +22,8 @@
     <nav class="main-nav" id="mainNav">
       <a href="#about">О компании</a>
       <a href="#products">Продукция</a>
+      <a href="#specs">Параметры</a>
       <a href="#advantages">Преимущества</a>
-      <a href="#industries">Отрасли</a>
       <a href="#contact">Контакты</a>
     </nav>
     <a href="#contact" class="btn btn-accent header-cta">Оставить заявку</a>
@@ -52,16 +53,31 @@
         </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
+        <svg class="molecule" viewBox="0 0 420 420" fill="none">
+          <line x1="120" y1="90" x2="230" y2="60" class="bond"/>
+          <line x1="230" y1="60" x2="330" y2="120" class="bond"/>
+          <line x1="230" y1="60" x2="210" y2="180" class="bond"/>
+          <line x1="210" y1="180" x2="110" y2="220" class="bond"/>
+          <line x1="210" y1="180" x2="300" y2="250" class="bond"/>
+          <line x1="110" y1="220" x2="150" y2="330" class="bond"/>
+          <line x1="300" y1="250" x2="270" y2="350" class="bond"/>
+          <circle cx="120" cy="90" r="10" class="atom atom-blue"/>
+          <circle cx="230" cy="60" r="14" class="atom atom-navy"/>
+          <circle cx="330" cy="120" r="9" class="atom atom-orange"/>
+          <circle cx="210" cy="180" r="16" class="atom atom-navy"/>
+          <circle cx="110" cy="220" r="10" class="atom atom-orange"/>
+          <circle cx="300" cy="250" r="11" class="atom atom-blue"/>
+          <circle cx="150" cy="330" r="9" class="atom atom-orange"/>
+          <circle cx="270" cy="350" r="10" class="atom atom-blue"/>
+        </svg>
         <div class="hero-card hero-card-1">
-          <span class="dot dot-orange"></span> Красители реактивные
+          <span class="spec-code">R·04</span> Красители реактивные
         </div>
         <div class="hero-card hero-card-2">
-          <span class="dot dot-blue"></span> ПАВ и смачиватели
+          <span class="spec-code">S·12</span> ПАВ и смачиватели
         </div>
         <div class="hero-card hero-card-3">
-          <span class="dot dot-orange"></span> Аппреты и отделка
+          <span class="spec-code">F·07</span> Аппреты и отделка
         </div>
       </div>
     </div>
@@ -78,7 +94,7 @@
       <div class="about-media" aria-hidden="true">
         <div class="about-card">
           <div class="about-card-glow"></div>
-          <span class="about-card-icon">⚗️</span>
+          <span class="about-card-code">WH·01</span>
           <strong>Собственный склад</strong>
           <p>Быстрая отгрузка со склада в Алматы</p>
         </div>
@@ -104,35 +120,82 @@
         <p class="section-lead">Полная линейка материалов для крашения, печати и отделки текстильных полотен.</p>
       </div>
       <div class="card-grid">
-        <div class="product-card">
-          <div class="product-icon">🎨</div>
+        <div class="product-card reveal">
+          <div class="element-tile"><span class="element-num">01</span><span class="element-sym">Кр</span></div>
           <h3>Красители</h3>
           <p>Реактивные, дисперсные и кислотные красители для хлопка, полиэстера и смесовых тканей.</p>
         </div>
-        <div class="product-card">
-          <div class="product-icon">🧪</div>
+        <div class="product-card reveal">
+          <div class="element-tile"><span class="element-num">02</span><span class="element-sym">ПАВ</span></div>
           <h3>ПАВ и смачиватели</h3>
           <p>Поверхностно-активные вещества для подготовки волокна, стирки и выравнивания окраски.</p>
         </div>
-        <div class="product-card">
-          <div class="product-icon">✨</div>
+        <div class="product-card reveal">
+          <div class="element-tile"><span class="element-num">03</span><span class="element-sym">Ап</span></div>
           <h3>Аппреты и отделка</h3>
           <p>Составы для несминаемости, водоотталкивающей и антипиллинговой отделки полотна.</p>
         </div>
-        <div class="product-card">
-          <div class="product-icon">🧵</div>
+        <div class="product-card reveal">
+          <div class="element-tile"><span class="element-num">04</span><span class="element-sym">Тв</span></div>
           <h3>Текстильные вспомогательные</h3>
           <p>Ферменты, стабилизаторы, диспергаторы и закрепители цвета.</p>
         </div>
-        <div class="product-card">
-          <div class="product-icon">🧴</div>
+        <div class="product-card reveal">
+          <div class="element-tile"><span class="element-num">05</span><span class="element-sym">Об</span></div>
           <h3>Химия для отбеливания</h3>
           <p>Пероксидные системы и стабилизаторы отбеливания для подготовки ткани.</p>
         </div>
-        <div class="product-card">
-          <div class="product-icon">📦</div>
+        <div class="product-card reveal">
+          <div class="element-tile"><span class="element-num">06</span><span class="element-sym">Фс</span></div>
           <h3>Фасовка под заказ</h3>
           <p>Поставки от малых партий до наливных объёмов — под нужды вашего производства.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="specs" class="section specs">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Технологические параметры</span>
+        <h2>Паспорт применения по группам химии</h2>
+        <p class="section-lead">Ориентировочные режимы обработки — точные параметры зависят от волокна и рецептуры, уточняются с технологом.</p>
+      </div>
+      <div class="specs-table" role="table">
+        <div class="specs-row specs-head" role="row">
+          <span role="columnheader">Группа</span>
+          <span role="columnheader">pH среды</span>
+          <span role="columnheader">Температура</span>
+          <span role="columnheader">Концентрация</span>
+          <span role="columnheader">Результат</span>
+        </div>
+        <div class="specs-row" role="row">
+          <span data-label="Группа">Реактивные красители</span>
+          <span data-label="pH">10.5–11.5</span>
+          <span data-label="Температура">55–60&nbsp;°C</span>
+          <span data-label="Концентрация">2–4&nbsp;%</span>
+          <span data-label="Результат">Фиксация ≥ 95%</span>
+        </div>
+        <div class="specs-row" role="row">
+          <span data-label="Группа">ПАВ / смачиватели</span>
+          <span data-label="pH">6–8</span>
+          <span data-label="Температура">40–60&nbsp;°C</span>
+          <span data-label="Концентрация">1–3&nbsp;г/л</span>
+          <span data-label="Результат">Равномерный смок</span>
+        </div>
+        <div class="specs-row" role="row">
+          <span data-label="Группа">Аппреты (отделка)</span>
+          <span data-label="pH">5–6</span>
+          <span data-label="Температура">150–170&nbsp;°C</span>
+          <span data-label="Концентрация">8–12&nbsp;% add-on</span>
+          <span data-label="Результат">Несминаемость</span>
+        </div>
+        <div class="specs-row" role="row">
+          <span data-label="Группа">Отбеливание H₂O₂</span>
+          <span data-label="pH">10.5–11</span>
+          <span data-label="Температура">95–98&nbsp;°C</span>
+          <span data-label="Концентрация">3–5&nbsp;г/л</span>
+          <span data-label="Результат">Белизна ≥ 80%</span>
         </div>
       </div>
     </div>
@@ -145,22 +208,22 @@
         <h2>Преимущества работы с нами</h2>
       </div>
       <div class="advantage-grid">
-        <div class="advantage-item">
+        <div class="advantage-item reveal">
           <span class="advantage-num">01</span>
           <h3>Стабильные поставки</h3>
           <p>Собственный склад в Казахстане и партнёрская логистика по региону.</p>
         </div>
-        <div class="advantage-item">
+        <div class="advantage-item reveal">
           <span class="advantage-num">02</span>
           <h3>Технологи в штате</h3>
           <p>Помогаем подобрать рецептуру и решить проблему на производстве.</p>
         </div>
-        <div class="advantage-item">
+        <div class="advantage-item reveal">
           <span class="advantage-num">03</span>
           <h3>Гибкие условия</h3>
           <p>Отсрочка платежа для постоянных партнёров и удобные объёмы поставки.</p>
         </div>
-        <div class="advantage-item">
+        <div class="advantage-item reveal">
           <span class="advantage-num">04</span>
           <h3>Контроль качества</h3>
           <p>Каждая партия сопровождается сертификатом и протоколом анализа.</p>
@@ -176,12 +239,12 @@
         <h2>Работаем с производителями</h2>
       </div>
       <div class="industry-row">
-        <span class="industry-pill">Текстильные фабрики</span>
-        <span class="industry-pill">Трикотажное производство</span>
-        <span class="industry-pill">Швейные предприятия</span>
-        <span class="industry-pill">Ковровое производство</span>
-        <span class="industry-pill">Красильные цеха</span>
-        <span class="industry-pill">Нетканые материалы</span>
+        <span class="industry-pill"><em>01</em>Текстильные фабрики</span>
+        <span class="industry-pill"><em>02</em>Трикотажное производство</span>
+        <span class="industry-pill"><em>03</em>Швейные предприятия</span>
+        <span class="industry-pill"><em>04</em>Ковровое производство</span>
+        <span class="industry-pill"><em>05</em>Красильные цеха</span>
+        <span class="industry-pill"><em>06</em>Нетканые материалы</span>
       </div>
     </div>
   </section>
