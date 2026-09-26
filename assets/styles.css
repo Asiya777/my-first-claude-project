@@ -472,12 +472,15 @@ a { text-decoration: none; color: inherit; }
 }
 
 .product-card {
+  position: relative;
   background: var(--white);
   border-radius: var(--radius-md);
   padding: 30px 26px;
   box-shadow: var(--shadow-card);
   transition: transform var(--transition), box-shadow var(--transition);
   border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
 }
 
 .product-card:hover {
@@ -514,54 +517,81 @@ a { text-decoration: none; color: inherit; }
   line-height: 1;
 }
 
-/* Specs table */
-.specs-table {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  background: var(--white);
-  box-shadow: var(--shadow-card);
-}
-
-.specs-row {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr 1.2fr;
-  gap: 12px;
-  padding: 18px 24px;
-  border-bottom: 1px solid var(--line);
-  align-items: center;
-}
-
-.specs-row:last-child { border-bottom: none; }
-
-.specs-head {
-  background: var(--bg);
+/* Product badges, rating, price */
+.product-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+  color: var(--white);
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 999px;
 }
 
-.specs-row:not(.specs-head) span {
+.product-badge-hit { background: linear-gradient(135deg, var(--blue-600), var(--navy-800)); }
+.product-badge-new { background: linear-gradient(135deg, #2fa86a, #1d7a4c); }
+
+.rating {
+  color: var(--orange-500);
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.rating-count {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+  letter-spacing: normal;
+  margin-left: 4px;
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: auto;
+  margin-bottom: 14px;
+}
+
+.price {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.price-old {
   font-family: var(--font-mono);
   font-size: 14px;
-  font-variant-numeric: tabular-nums;
+  color: var(--ink-soft);
+  text-decoration: line-through;
+}
+
+/* Reviews */
+.reviews-grid { grid-template-columns: repeat(3, 1fr); }
+
+.review-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 28px 26px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+}
+
+.review-card p {
   color: var(--ink);
+  font-style: italic;
+  flex: 1;
 }
 
-.specs-row:not(.specs-head) span:first-child {
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 15px;
-}
-
-.specs-row:not(.specs-head) span:last-child {
-  color: var(--orange-600);
-  font-weight: 600;
-}
+.review-card strong { font-size: 15px; }
+.review-card span { font-family: var(--font-mono); font-size: 12px; color: var(--ink-soft); }
 
 /* Advantages (dark section) */
 .advantages {
@@ -736,11 +766,10 @@ a { text-decoration: none; color: inherit; }
   .hero-inner, .about-grid, .contact-grid { grid-template-columns: 1fr; }
   .hero-visual { height: 320px; order: -1; }
   .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .reviews-grid { grid-template-columns: repeat(2, 1fr); }
   .advantage-grid { grid-template-columns: repeat(2, 1fr); }
   .main-nav { display: none; }
   .nav-toggle { display: flex; }
-  .specs-row { grid-template-columns: 1.4fr 1fr 1fr; }
-  .specs-row span:nth-child(4), .specs-row span:nth-child(5) { display: none; }
 }
 
 @media (max-width: 960px) {
@@ -760,10 +789,9 @@ a { text-decoration: none; color: inherit; }
 
 @media (max-width: 640px) {
   .card-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
   .advantage-grid { grid-template-columns: 1fr; }
   .hero-stats { gap: 20px; }
   .header-cta { display: none; }
   .contact-form { padding: 24px; }
-  .specs-row { grid-template-columns: 1.2fr 1fr; padding: 14px 18px; }
-  .specs-row span:nth-child(3) { display: none; }
 }

@@ -11,6 +11,20 @@ if (navToggle && mainNav) {
   });
 }
 
+const orderButtons = document.querySelectorAll('.cta-order');
+const messageField = document.getElementById('f-message');
+
+orderButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const product = button.dataset.product || '';
+    if (messageField) {
+      messageField.value = `Хочу заказать: ${product}`;
+    }
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('f-name')?.focus({ preventScroll: true });
+  });
+});
+
 const contactForm = document.getElementById('contactForm');
 const formNote = document.getElementById('formNote');
 
